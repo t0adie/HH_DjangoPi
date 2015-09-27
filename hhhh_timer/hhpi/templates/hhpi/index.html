@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hilly Hundred Time Tracking</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'hhpi/style.css' %}">
+</head>
+
+<body>
+    {% if registered_riders %}
+
+    <ul>
+    	<li><span>Bib No.</span><span>First Name</span><span>Last Name</span><span>Course</span></li>
+    {% for id in registered_riders  %}
+	<li><span>{{ id.bib_id }}</span><span>{{ id.firstname }}</span><span>{{ id.lastname }}</span><span>{{ id.course_id }}km.</span></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No riders are available.</p>
+    {% endif %}
+</body>
+</html>
